@@ -28,6 +28,7 @@ public class Main {
 
         // Архивация сохранений
         zipFiles("C:/Games/savegames/saves.zip", saves);
+        deleteFiles(saves);
 
     }
 
@@ -58,8 +59,10 @@ public class Main {
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
+    }
 
-        // Удаление остаточных файлов вне архива
+    // Удаление остаточных файлов вне архива
+    public static void deleteFiles(List<String> files) {
         for (String file : files) {
             File file1 = new File(file);
             file1.delete();
